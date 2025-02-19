@@ -4,7 +4,6 @@
 <img src="https://img.shields.io/badge/Python-3.10-blue" alt="Python Badge">
 <img src="https://img.shields.io/badge/PyTorch-2.0.1+cu118-orange" alt="PyTorch Badge">
 <img alt="Scikit-Learn Badge" src="https://img.shields.io/badge/scikit--learn-1.2.2-test?color=red">
-<img src="https://img.shields.io/badge/License-MIT-yellow" alt="License Badge">
 </p>
 </div>
 
