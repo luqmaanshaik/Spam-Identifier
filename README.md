@@ -37,7 +37,7 @@ The model used for this project is a simple neural network with two linear layer
 To use this project, you can follow these steps:
 
 1. Clone this repository to your local machine using `git clone https://github.com/LyubomirT/spam-classifier.git`.
-2. Open the `ML_Spam_Identifier.ipynb` file in Google Colab or any other Jupyter notebook environment.
+2. Open the `Spam-Identifier.ipynb` file in Google Colab or any other Jupyter notebook environment.
 3. Upload the `assets` folder to your environment, and move its contents to the same directory as the notebook.
 4. Run the cells in order to import the libraries, define the classes and functions, and train the model.
 5. Save the trained model to your Google Drive or download it to your local machine.
