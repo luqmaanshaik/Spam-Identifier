@@ -13,19 +13,20 @@ A machine learning-based spam detection system that classifies emails as spam or
 - **Jupyter Notebook:** For exploratory data analysis (EDA) and model building  
 
 ## 📂 Project Structure  
+📂 Spam-Identifier/ ├── 📂 data/ # Dataset files
+├── 📂 models/ # Trained ML models
+├── spam_identifier.ipynb # Jupyter Notebook with code
+├── requirements.txt # Required dependencies
+├── README.md # Project documentation
+└── .gitignore # Ignore unnecessary files
+
 ## 🚀 Installation & Setup  
 1️⃣ **Clone the repository**  
+```sh
 git clone https://github.com/luqmaanshaik/Spam-Identifier.git
 cd Spam-Identifier
-
-2️⃣ Install dependencies
-
-
 pip install -r requirements.txt
-3️⃣ Run the Jupyter Notebook
-
-
-jupyter notebook
+pip install -r requirements.txt
 4️⃣ Open spam_identifier.ipynb and run the cells
 
 📊 Dataset Information
@@ -54,6 +55,8 @@ Fork the repository
 Create a new branch (feature-new)
 Commit your changes
 Push to your fork and submit a PR
+📜 License
+This project is open-source and available under the MIT License.
 
 📬 Contact
 📧 Email: shaikluqmaan1@gmail.com
