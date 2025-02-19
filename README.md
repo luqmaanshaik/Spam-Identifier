@@ -15,9 +15,9 @@ A machine learning-based spam detection system that classifies emails as spam or
 ## 📂 Project Structure  
 ## 🚀 Installation & Setup  
 1️⃣ **Clone the repository**  
-```sh
 git clone https://github.com/luqmaanshaik/Spam-Identifier.git
 cd Spam-Identifier
+
 2️⃣ Install dependencies
 
 
