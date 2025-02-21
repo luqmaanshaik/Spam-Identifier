@@ -1,5 +1,6 @@
 import streamlit as st
 import joblib  
+import numpy as np
 
 # Load the trained spam detection model
 @st.cache_resource
@@ -26,8 +27,8 @@ st.markdown(
         .not-spam-message { color: white; background-color: #2ECC71; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
         .footer { text-align: center; color: #566573; margin-top: 50px; font-size: 16px; }
         .links { text-align: center; margin-top: 10px; }
-        .links a { color: #2980B9; text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
-        .links a:hover { text-decoration: underline; }
+        .links a { text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
+        .links img { width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; }
         hr { border: none; height: 1px; background-color: #D5D8DC; margin-top: 40px; }
     </style>
     """,
@@ -48,21 +49,27 @@ if st.button("🔎 Predict"):
     if user_input.strip() == "":  # Prevent empty input
         st.warning("⚠️ Please enter a message before predicting.")
     else:
-        prediction = model.predict([user_input])  # Model Prediction
-        if prediction[0] == 1:
-            st.markdown("<p class='spam-message'>🚨 <b>Spam Message Detected! Be cautious.</b></p>", unsafe_allow_html=True)
+        probability = model.predict_proba([user_input])[0][1]  # Get spam probability
+        spam_percentage = round(probability * 100, 2)  # Convert to percentage
+        
+        if probability > 0.5:
+            st.markdown(f"<p class='spam-message'>🚨 <b>Spam Message Detected! ({spam_percentage}% Spam Probability)</b></p>", unsafe_allow_html=True)
         else:
-            st.markdown("<p class='not-spam-message'>✅ <b>This message is safe!</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p class='not-spam-message'>✅ <b>This message is safe! ({100 - spam_percentage}% Not Spam Probability)</b></p>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Footer with LinkedIn & GitHub Links
+# Footer with LinkedIn & GitHub Icons
 st.markdown(
     """
     <hr>
     <p class='footer'>Made with ❤️ by <b>Shaik Luqmaan</b></p>
     <div class='links'>
-        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank">🔗 LinkedIn</a>
-        <a href="https://github.com/luqmaanshaik" target="_blank">🔗 GitHub</a>
+        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"> LinkedIn
+        </a>
+        <a href="https://github.com/luqmaanshaik" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"> GitHub
+        </a>
     </div>
     """,
     unsafe_allow_html=True,
