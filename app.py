@@ -8,18 +8,39 @@ def load_model():
 
 model = load_model()
 
-# Streamlit App Title
-st.title("📧 Spam Identifier")
-st.write("Enter a message below to check if it's spam or not.")
+# Customizing Streamlit UI
+st.set_page_config(page_title="Spam Identifier", page_icon="📩", layout="centered")
+
+# Stylish Title
+st.markdown(
+    """
+    <h1 style='text-align: center; color: #2E86C1;'>📧 Spam Identifier</h1>
+    <p style='text-align: center; color: #566573; font-size: 18px;'>Created by <b>Shaik Luqmaan</b></p>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.write("🔍 **Enter a message below to check if it's spam or not.**")
 
 # User Input
-user_input = st.text_area("Message:", "")
+user_input = st.text_area("✉️ Message:", "")
 
 # Prediction Button with Empty Input Handling
-if st.button("Predict"):
+if st.button("🔎 Predict"):
     if user_input.strip() == "":  # Prevent empty input
         st.warning("⚠️ Please enter a message before predicting.")
     else:
         prediction = model.predict([user_input])  # Model Prediction
-        result = "**Spam** 🚨" if prediction[0] == 1 else "**Not Spam** ✅"
-        st.success(f"Prediction: {result}")
+        if prediction[0] == 1:
+            st.error("🚨 **Spam Message Detected!**")
+        else:
+            st.success("✅ **Not Spam**")
+
+# Footer
+st.markdown(
+    """
+    <br><hr>
+    <p style='text-align: center; color: #7D3C98;'>Made with ❤️ by <b>Shaik Luqmaan</b></p>
+    """,
+    unsafe_allow_html=True,
+)
