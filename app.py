@@ -58,17 +58,17 @@ if st.button("🔎 Predict"):
             st.markdown(f"<p class='not-spam-message'>✅ <b>This message is safe! ({100 - spam_percentage}% Not Spam Probability)</b></p>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Footer with LinkedIn & GitHub Icons
+# Footer with GitHub First & LinkedIn Second
 st.markdown(
     """
     <hr>
     <p class='footer'>Made with ❤️ by <b>Shaik Luqmaan</b></p>
     <div class='links'>
-        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"> LinkedIn
-        </a>
         <a href="https://github.com/luqmaanshaik" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"> LinkedIn
         </a>
     </div>
     """,
