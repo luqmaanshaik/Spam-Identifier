@@ -28,10 +28,10 @@ with col1:
 with col2:
     clear_text = st.button("❌ Clear")
 
-# Clear button functionality (Fix for clearing text box)
+# Clear button functionality (Fixed!)
 if clear_text:
     st.session_state["text_input"] = ""  # Reset session state
-    st.experimental_rerun()  # Refresh the app to clear the input field
+    st.rerun()  # Refresh the app to clear the input field
 
 # Spam Prediction Logic
 if check_spam:
