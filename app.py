@@ -1,5 +1,5 @@
 import streamlit as st
-import joblib  # Ensure joblib is installed
+import joblib  
 
 # Load the trained spam detection model
 @st.cache_resource
@@ -11,22 +11,32 @@ model = load_model()
 # Customizing Streamlit UI
 st.set_page_config(page_title="Spam Identifier", page_icon="📩", layout="centered")
 
-# Stylish Title
+# Applying custom CSS for professional look
 st.markdown(
     """
-    <h1 style='text-align: center; color: #2E86C1;'>📧 Spam Identifier</h1>
-    <p style='text-align: center; color: #566573; font-size: 18px;'>Created by <b>Shaik Luqmaan</b></p>
+    <style>
+        body { background-color: #f4f6f7; }
+        .title { font-size: 40px; font-weight: bold; text-align: center; color: #2E86C1; }
+        .subheader { text-align: center; font-size: 20px; color: #566573; margin-bottom: 20px; }
+        .stTextArea textarea { font-size: 18px; }
+        .button { background-color: #2E86C1; color: white; font-size: 18px; border-radius: 10px; padding: 10px 20px; }
+        .button:hover { background-color: #1B4F72; }
+        .footer { text-align: center; color: #7D3C98; margin-top: 50px; font-size: 16px; }
+    </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.write("🔍 **Enter a message below to check if it's spam or not.**")
+# Stylish Title
+st.markdown("<h1 class='title'>📧 Spam Identifier</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>Created by <b>Shaik Luqmaan</b></p>", unsafe_allow_html=True)
 
-# User Input
+# User Input Section
+st.markdown("### 🔍 Enter a message below to check if it's spam or not.")
 user_input = st.text_area("✉️ Message:", "")
 
 # Prediction Button with Empty Input Handling
-if st.button("🔎 Predict"):
+if st.button("🔎 Predict", key="predict", help="Click to classify the message"):
     if user_input.strip() == "":  # Prevent empty input
         st.warning("⚠️ Please enter a message before predicting.")
     else:
@@ -34,13 +44,13 @@ if st.button("🔎 Predict"):
         if prediction[0] == 1:
             st.error("🚨 **Spam Message Detected!**")
         else:
-            st.success("✅ **Not Spam**")
+            st.success("✅ **Not Spam Message!**")
 
-# Footer
+# Footer with LinkedIn Profile
 st.markdown(
     """
-    <br><hr>
-    <p style='text-align: center; color: #7D3C98;'>Made with ❤️ by <b>Shaik Luqmaan</b></p>
+    <hr>
+    <p class='footer'>Made with ❤️ by <b>Shaik Luqmaan</b> | <a href="https://www.linkedin.com/in/shaikluqmaan" target="_blank">LinkedIn</a></p>
     """,
     unsafe_allow_html=True,
 )
