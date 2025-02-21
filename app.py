@@ -9,7 +9,8 @@ except FileNotFoundError:
     st.error("⚠️ Model file not found! Please upload 'spam_model.pkl' to your GitHub repository.")
     st.stop()
 
-# UI Design
+# Streamlit UI Design
+st.set_page_config(page_title="Spam Identifier", page_icon="📩")
 st.title("📩 Spam Identifier")
 st.markdown("### 🚀 Enter a message to check if it's spam or not!")
 
@@ -23,9 +24,10 @@ with col1:
 with col2:
     clear_text = st.button("❌ Clear")
 
-# Clear button functionality
+# Clear button functionality (Fix for st.experimental_rerun error)
 if clear_text:
-    st.experimental_rerun()
+    st.session_state["user_input"] = ""
+    st.rerun()
 
 # Spam Prediction Logic
 if check_spam:
@@ -42,6 +44,6 @@ if check_spam:
     else:
         st.warning("⚠️ Please enter a message before checking.")
 
-# Footer
+# Footer with Your Name
 st.markdown("---")
-st.markdown("🔹 Built with ❤️ using **Streamlit & Machine Learning**")
+st.markdown("🔹 Built with ❤️ by **Shaik Luqmaan** using **Streamlit & Machine Learning**")
