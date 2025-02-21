@@ -14,12 +14,12 @@ st.set_page_config(page_title="Spam Identifier", page_icon="📩")
 st.title("📩 Spam Identifier")
 st.markdown("### 🚀 Enter a message to check if it's spam or not!")
 
-# Initialize session state for clearing text
+# Initialize session state for text input
 if "text_input" not in st.session_state:
     st.session_state["text_input"] = ""
 
-# Text Input
-user_input = st.text_area("✍️ Type your message here:", st.session_state["text_input"], height=150)
+# Text Input Box (Controlled by session state)
+user_input = st.text_area("✍️ Type your message here:", value=st.session_state["text_input"], height=150)
 
 # Buttons
 col1, col2 = st.columns([1, 1])
@@ -31,7 +31,7 @@ with col2:
 # Clear button functionality (Fix for clearing text box)
 if clear_text:
     st.session_state["text_input"] = ""  # Reset session state
-    st.rerun()  # Refresh the app to update the text box
+    st.experimental_rerun()  # Refresh the app to clear the input field
 
 # Spam Prediction Logic
 if check_spam:
