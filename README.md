@@ -69,10 +69,10 @@ Here are some examples of predictions made by the model:
 
 📌 Key Observations:
 
-Short & Aggressive Offers (e.g., BUY NOW!) are flagged 75%+ spam.
-Casual Conversations (e.g., "Hi, how are you?") are almost never spam.
-Scam Messages (e.g., "You have won a free trip!") are 99% spam.
-Longer, formal messages (e.g., "Can we talk later?") can be misclassified sometimes.
+. Short & Aggressive Offers (e.g., BUY NOW!) are flagged 75%+ spam.
+. Casual Conversations (e.g., "Hi, how are you?") are almost never spam.
+. Scam Messages (e.g., "You have won a free trip!") are 99% spam.
+. Longer, formal messages (e.g., "Can we talk later?") can be misclassified sometimes.
 
 
 <a href="https://github.com/luqmaanshaik" target="_blank"> <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white"> </a> 
