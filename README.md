@@ -75,8 +75,9 @@ Here are some examples of predictions made by the model:
 4. Longer, formal messages (e.g., "Can we talk later?") can be misclassified sometimes.
 
 
+
 <div align="center">
-    <h3>📌 Connect With Me</h3>
+    <h3> Connect With Me</h3>
     <p>
         <a href="https://github.com/luqmaanshaik" target="_blank">
             <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white">
