@@ -9,6 +9,10 @@
 
 This project is a spam classifier that uses artificial intelligence to identify spam messages. It is implemented in Python, primarily utilizing the PyTorch and scikit-learn libraries for machine learning and natural language processing tasks.
 
+## 🚀 Live Demo
+🔗 **Try the Spam Identifier Here:**  
+👉 [Spam Identifier Web App](https://spam-identifier-bh4pps9pxoglndg9hfgzc3.streamlit.app/#spam-identifier)
+
 ## Requirements
 
 To run this project, you will need the following libraries:
