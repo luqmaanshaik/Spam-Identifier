@@ -11,7 +11,7 @@ model = load_model()
 # Customizing Streamlit UI
 st.set_page_config(page_title="Spam Identifier", page_icon="📩", layout="centered")
 
-# Applying custom CSS for professional look
+# Applying custom CSS for a professional look
 st.markdown(
     """
     <style>
@@ -22,6 +22,9 @@ st.markdown(
         .button { background-color: #2E86C1; color: white; font-size: 18px; border-radius: 10px; padding: 10px 20px; }
         .button:hover { background-color: #1B4F72; }
         .footer { text-align: center; color: #7D3C98; margin-top: 50px; font-size: 16px; }
+        .links { text-align: center; margin-top: 20px; }
+        .links a { color: #2E86C1; text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
+        .links a:hover { text-decoration: underline; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -46,11 +49,15 @@ if st.button("🔎 Predict", key="predict", help="Click to classify the message"
         else:
             st.success("✅ **Not Spam Message!**")
 
-# Footer with LinkedIn Profile
+# Footer with LinkedIn & GitHub Links
 st.markdown(
     """
     <hr>
-    <p class='footer'>Made with ❤️ by <b>Shaik Luqmaan</b> | <a href="https://www.linkedin.com/in/shaikluqmaan" target="_blank">LinkedIn</a></p>
+    <p class='footer'>Made with ❤️ by <b>Shaik Luqmaan</b></p>
+    <div class='links'>
+        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/luqmaanshaik" target="_blank">🔗 GitHub</a>
+    </div>
     """,
     unsafe_allow_html=True,
 )
