@@ -8,46 +8,52 @@ def load_model():
 
 model = load_model()
 
-# Customizing Streamlit UI
+# Streamlit Page Configuration
 st.set_page_config(page_title="Spam Identifier", page_icon="📩", layout="centered")
 
-# Applying custom CSS for a professional look
+# Custom CSS for a Professional Look
 st.markdown(
     """
     <style>
-        body { background-color: #f4f6f7; }
-        .title { font-size: 40px; font-weight: bold; text-align: center; color: #2E86C1; }
-        .subheader { text-align: center; font-size: 20px; color: #566573; margin-bottom: 20px; }
-        .stTextArea textarea { font-size: 18px; }
-        .button { background-color: #2E86C1; color: white; font-size: 18px; border-radius: 10px; padding: 10px 20px; }
+        body { background-color: #f8f9fa; }
+        .title { font-size: 42px; font-weight: bold; text-align: center; color: #2C3E50; }
+        .subheader { text-align: center; font-size: 20px; color: #7B7D7D; margin-bottom: 20px; }
+        .stTextArea textarea { font-size: 18px; border-radius: 10px; padding: 10px; }
+        .button-container { display: flex; justify-content: center; }
+        .button { background-color: #3498DB; color: white; font-size: 18px; border-radius: 10px; padding: 12px 24px; font-weight: bold; border: none; cursor: pointer; }
         .button:hover { background-color: #1B4F72; }
-        .footer { text-align: center; color: #7D3C98; margin-top: 50px; font-size: 16px; }
-        .links { text-align: center; margin-top: 20px; }
-        .links a { color: #2E86C1; text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
+        .spam-message { color: white; background-color: #E74C3C; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
+        .not-spam-message { color: white; background-color: #2ECC71; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
+        .footer { text-align: center; color: #566573; margin-top: 50px; font-size: 16px; }
+        .links { text-align: center; margin-top: 10px; }
+        .links a { color: #2980B9; text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
         .links a:hover { text-decoration: underline; }
+        hr { border: none; height: 1px; background-color: #D5D8DC; margin-top: 40px; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Stylish Title
-st.markdown("<h1 class='title'>📧 Spam Identifier</h1>", unsafe_allow_html=True)
+# App Title
+st.markdown("<h1 class='title'>📩 Spam Identifier</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subheader'>Created by <b>Shaik Luqmaan</b></p>", unsafe_allow_html=True)
 
 # User Input Section
 st.markdown("### 🔍 Enter a message below to check if it's spam or not.")
-user_input = st.text_area("✉️ Message:", "")
+user_input = st.text_area("✉️ Message:", "", placeholder="Type your message here...")
 
-# Prediction Button with Empty Input Handling
-if st.button("🔎 Predict", key="predict", help="Click to classify the message"):
+# Centered Prediction Button
+st.markdown("<div class='button-container'>", unsafe_allow_html=True)
+if st.button("🔎 Predict"):
     if user_input.strip() == "":  # Prevent empty input
         st.warning("⚠️ Please enter a message before predicting.")
     else:
         prediction = model.predict([user_input])  # Model Prediction
         if prediction[0] == 1:
-            st.error("🚨 **Spam Message Detected!**")
+            st.markdown("<p class='spam-message'>🚨 <b>Spam Message Detected! Be cautious.</b></p>", unsafe_allow_html=True)
         else:
-            st.success("✅ **Not Spam Message!**")
+            st.markdown("<p class='not-spam-message'>✅ <b>This message is safe!</b></p>", unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Footer with LinkedIn & GitHub Links
 st.markdown(
