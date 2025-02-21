@@ -77,7 +77,7 @@ Here are some examples of predictions made by the model:
 <br><br> <!-- Adds space between sections -->
 
 <div align="center">
-    <h3> Connect With Me </h3>
+    <h3> CONNECT WITH ME </h3>
     <p>
         <a href="https://github.com/luqmaanshaik" target="_blank">
             <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white">
