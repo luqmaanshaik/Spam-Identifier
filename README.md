@@ -8,14 +8,12 @@
 </div>
 
 
-</div>
-🌟 **An AI-powered Spam Message Classifier** built with **Python, PyTorch, and Scikit-learn**.
-</div>
-
 
 ## 🚀 Live Demo
 🔗 **Try the Spam Identifier Here:**  
 👉 [Spam Identifier Web App](https://spam-identifier-bh4pps9pxoglndg9hfgzc3.streamlit.app/#spam-identifier)
+
+
 
 This project is a spam classifier that uses artificial intelligence to identify spam messages. It is implemented in Python, primarily utilizing the PyTorch and scikit-learn libraries for machine learning and natural language processing tasks.
 
@@ -70,5 +68,4 @@ Here are some examples of predictions made by the model:
 
 
 <a href="https://github.com/luqmaanshaik" target="_blank"> <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white"> </a> 
-
-<a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"> </a>
+        <a href="https://www.linkedin.com/in/luqmaan-shaik-2166502a8/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"> </a>
