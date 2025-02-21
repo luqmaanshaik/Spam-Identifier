@@ -14,27 +14,11 @@ st.set_page_config(page_title="Spam Identifier", page_icon="📩")
 st.title("📩 Spam Identifier")
 st.markdown("### 🚀 Enter a message to check if it's spam or not!")
 
-# Initialize session state for text input and result
-if "text_input" not in st.session_state:
-    st.session_state["text_input"] = ""
-if "result" not in st.session_state:
-    st.session_state["result"] = ""
+# Text Input Box
+user_input = st.text_area("✍️ Type your message here:", height=150)
 
-# Text Input Box (Controlled by session state)
-user_input = st.text_area("✍️ Type your message here:", value=st.session_state["text_input"], height=150)
-
-# Buttons
-col1, col2 = st.columns([1, 1])
-with col1:
-    check_spam = st.button("🔍 Check Spam")
-with col2:
-    clear_text = st.button("❌ Clear")
-
-# Clear button functionality (Now clears both text & result)
-if clear_text:
-    st.session_state["text_input"] = ""  # Reset text input
-    st.session_state["result"] = ""  # Reset result
-    st.rerun()  # Refresh the app to clear everything
+# Check Spam Button
+check_spam = st.button("🔍 Check Spam")
 
 # Spam Prediction Logic
 if check_spam:
@@ -44,21 +28,17 @@ if check_spam:
 
         # Display results with confidence score
         if spam_prob > 50:
-            st.session_state["result"] = f"⚠️ This message is **Spam** ({spam_prob:.2f}% confidence)."
+            st.markdown(
+                f'<div style="background-color:#FF4B4B;padding:15px;border-radius:10px;color:white;font-size:18px;">⚠️ This message is <b>Spam</b> ({spam_prob:.2f}% confidence).</div>',
+                unsafe_allow_html=True
+            )
         else:
-            st.session_state["result"] = f"✅ This message is **Not Spam** ({100 - spam_prob:.2f}% confidence)."
-
+            st.markdown(
+                f'<div style="background-color:#4CAF50;padding:15px;border-radius:10px;color:white;font-size:18px;">✅ This message is <b>Not Spam</b> ({100 - spam_prob:.2f}% confidence).</div>',
+                unsafe_allow_html=True
+            )
     else:
-        st.session_state["result"] = "⚠️ Please enter a message before checking."
-
-# Display the result
-if st.session_state["result"]:
-    if "Spam" in st.session_state["result"]:
-        st.error(st.session_state["result"])
-    elif "Not Spam" in st.session_state["result"]:
-        st.success(st.session_state["result"])
-    else:
-        st.warning(st.session_state["result"])
+        st.warning("⚠️ Please enter a message before checking.")
 
 # Footer with Your Name
 st.markdown("---")
