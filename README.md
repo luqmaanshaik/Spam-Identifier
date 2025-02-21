@@ -7,23 +7,27 @@
 </p>
 </div>
 
+
+</div>
 🌟 **An AI-powered Spam Message Classifier** built with **Python, PyTorch, and Scikit-learn**.
 </div>
 
-This project is a spam classifier that uses artificial intelligence to identify spam messages. It is implemented in Python, primarily utilizing the PyTorch and scikit-learn libraries for machine learning and natural language processing tasks.
 
 ## 🚀 Live Demo
 🔗 **Try the Spam Identifier Here:**  
 👉 [Spam Identifier Web App](https://spam-identifier-bh4pps9pxoglndg9hfgzc3.streamlit.app/#spam-identifier)
 
-## Requirements
+This project is a spam classifier that uses artificial intelligence to identify spam messages. It is implemented in Python, primarily utilizing the PyTorch and scikit-learn libraries for machine learning and natural language processing tasks.
+
+
+## 🔧 Requirements
 
 To run this project, you will need the following libraries:
 
-- torch
-- sklearn
-- csv
-- pandas
+- `torch`
+- `scikit-learn`
+- `pandas`
+- `streamlit`
 
 You can install them using `!pip install torch scikit-learn pandas`. However, all of them are pre-installed in Google Colab.
 
