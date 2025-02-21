@@ -7,6 +7,9 @@
 </p>
 </div>
 
+🌟 **An AI-powered Spam Message Classifier** built with **Python, PyTorch, and Scikit-learn**.
+</div>
+
 This project is a spam classifier that uses artificial intelligence to identify spam messages. It is implemented in Python, primarily utilizing the PyTorch and scikit-learn libraries for machine learning and natural language processing tasks.
 
 ## 🚀 Live Demo
