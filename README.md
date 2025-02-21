@@ -67,17 +67,17 @@ Here are some examples of predictions made by the model:
 | I'm sorry I missed your call earlier. Can we talk later? If you're comfortable, of course. Best Regards, Jared. | Ham | 27.84% | Medium |
 
 
-📌 Key Observations:
+📌 **Key Observations:**
 
-1. Short & Aggressive Offers (e.g., BUY NOW!) are flagged 75%+ spam.
-2. Casual Conversations (e.g., "Hi, how are you?") are almost never spam.
-3. Scam Messages (e.g., "You have won a free trip!") are 99% spam.
-4. Longer, formal messages (e.g., "Can we talk later?") can be misclassified sometimes.
+1. **Short & Aggressive Offers** (e.g., BUY NOW!) are flagged **75%+ spam**.
+2. **Casual Conversations** (e.g., "Hi, how are you?") are **almost never spam**.
+3. **Scam Messages** (e.g., "You have won a free trip!") are **99% spam**.
+4. **Longer, formal messages** (e.g., "Can we talk later?") can be **misclassified sometimes**.
 
-
+<br><br> <!-- Adds space between sections -->
 
 <div align="center">
-    <h3> Connect With Me</h3>
+    <h3> 🤝 Connect With Me </h3>
     <p>
         <a href="https://github.com/luqmaanshaik" target="_blank">
             <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white">
