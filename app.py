@@ -1,6 +1,5 @@
 import streamlit as st
 import joblib  
-import numpy as np
 
 # Load the trained spam detection model
 @st.cache_resource
@@ -20,7 +19,7 @@ st.markdown(
         .title { font-size: 42px; font-weight: bold; text-align: center; color: #2C3E50; }
         .subheader { text-align: center; font-size: 20px; color: #7B7D7D; margin-bottom: 20px; }
         .stTextArea textarea { font-size: 18px; border-radius: 10px; padding: 10px; }
-        .button-container { display: flex; justify-content: center; }
+        .button-container { text-align: center; margin-top: 20px; }
         .button { background-color: #3498DB; color: white; font-size: 18px; border-radius: 10px; padding: 12px 24px; font-weight: bold; border: none; cursor: pointer; }
         .button:hover { background-color: #1B4F72; }
         .spam-message { color: white; background-color: #E74C3C; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
@@ -44,21 +43,21 @@ st.markdown("### 🔍 Enter a message below to check if it's spam or not.")
 user_input = st.text_area("✉️ Message:", "", placeholder="Type your message here...")
 
 # Centered Prediction Button
-st.markdown("<div class='button-container'>", unsafe_allow_html=True)
-if st.button("🔎 Predict"):
-    if user_input.strip() == "":  # Prevent empty input
-        st.warning("⚠️ Please enter a message before predicting.")
-    else:
-        probability = model.predict_proba([user_input])[0][1]  # Get spam probability
-        spam_percentage = round(probability * 100, 2)  # Convert to percentage
-        
-        if probability > 0.5:
-            st.markdown(f"<p class='spam-message'>🚨 <b>Spam Message Detected! ({spam_percentage}% Spam Probability)</b></p>", unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])  # Creating a centered layout
+with col2:  # Placing the button in the middle column
+    if st.button("🔎 Predict"):
+        if user_input.strip() == "":  # Prevent empty input
+            st.warning("⚠️ Please enter a message before predicting.")
         else:
-            st.markdown(f"<p class='not-spam-message'>✅ <b>This message is safe! ({100 - spam_percentage}% Not Spam Probability)</b></p>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
+            probability = model.predict_proba([user_input])[0][1]  # Get spam probability
+            spam_percentage = round(probability * 100, 2)  # Convert to percentage
+            
+            if probability > 0.5:
+                st.markdown(f"<p class='spam-message'>🚨 <b>Spam Message Detected! ({spam_percentage}% Spam Probability)</b></p>", unsafe_allow_html=True)
+            else:
+                st.markdown(f"<p class='not-spam-message'>✅ <b>This message is safe! ({100 - spam_percentage}% Not Spam Probability)</b></p>", unsafe_allow_html=True)
 
-# Footer with GitHub First & LinkedIn Second
+# Footer with GitHub and LinkedIn
 st.markdown(
     """
     <hr>
