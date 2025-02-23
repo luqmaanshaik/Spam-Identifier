@@ -1,5 +1,6 @@
 import streamlit as st
 import joblib  
+import numpy as np
 
 # Load the trained spam detection model
 @st.cache_resource
@@ -9,34 +10,34 @@ def load_model():
 model = load_model()
 
 # Streamlit Page Configuration
-st.set_page_config(page_title="Spam Detector", page_icon="🚨", layout="centered")
+st.set_page_config(page_title="Spam Identifier", page_icon="📩", layout="centered")
 
-# Custom CSS for Spam-Themed UI
+# Custom CSS for a Professional Look
 st.markdown(
     """
     <style>
-        body { background-color: #121212; color: white; }
-        .title { font-size: 42px; font-weight: bold; text-align: center; color: #ff4b5c; text-shadow: 2px 2px 10px red; }
-        .subheader { text-align: center; font-size: 18px; color: #d1d1d1; margin-bottom: 20px; }
-        .stTextArea textarea { font-size: 16px; border-radius: 8px; padding: 10px; background-color: #1e1e1e; color: white; border: 1px solid #ff4b5c; }
+        body { background-color: #f8f9fa; }
+        .title { font-size: 42px; font-weight: bold; text-align: center; color: #2C3E50; }
+        .subheader { text-align: center; font-size: 20px; color: #7B7D7D; margin-bottom: 20px; }
+        .stTextArea textarea { font-size: 18px; border-radius: 10px; padding: 10px; }
         .button-container { display: flex; justify-content: center; }
-        .button { background-color: #ff4b5c; color: white; font-size: 18px; border-radius: 8px; padding: 12px 24px; font-weight: bold; border: none; cursor: pointer; text-shadow: 1px 1px 5px black; }
-        .button:hover { background-color: #d63031; box-shadow: 0px 0px 10px red; }
-        .spam-message { color: white; background-color: #ff4b5c; padding: 15px; border-radius: 8px; text-align: center; font-size: 18px; box-shadow: 0px 0px 10px red; }
-        .not-spam-message { color: white; background-color: #2ecc71; padding: 15px; border-radius: 8px; text-align: center; font-size: 18px; box-shadow: 0px 0px 10px green; }
-        .footer { text-align: center; color: #888; margin-top: 50px; font-size: 16px; }
+        .button { background-color: #3498DB; color: white; font-size: 18px; border-radius: 10px; padding: 12px 24px; font-weight: bold; border: none; cursor: pointer; }
+        .button:hover { background-color: #1B4F72; }
+        .spam-message { color: white; background-color: #E74C3C; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
+        .not-spam-message { color: white; background-color: #2ECC71; padding: 15px; border-radius: 10px; text-align: center; font-size: 18px; }
+        .footer { text-align: center; color: #566573; margin-top: 50px; font-size: 16px; }
         .links { text-align: center; margin-top: 10px; }
-        .links a { text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; color: white; }
+        .links a { text-decoration: none; font-size: 18px; margin: 0 15px; font-weight: bold; }
         .links img { width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; }
-        hr { border: none; height: 1px; background-color: #333; margin-top: 40px; }
+        hr { border: none; height: 1px; background-color: #D5D8DC; margin-top: 40px; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
 # App Title
-st.markdown("<h1 class='title'>🚨 Spam Detector</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>Created by <b>Shaik Luqmaan</b> - AI & Cybersecurity Enthusiast</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>📩 Spam Identifier</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>Created by <b>Shaik Luqmaan</b></p>", unsafe_allow_html=True)
 
 # User Input Section
 st.markdown("### 🔍 Enter a message below to check if it's spam or not.")
@@ -44,20 +45,20 @@ user_input = st.text_area("✉️ Message:", "", placeholder="Type your message 
 
 # Centered Prediction Button
 st.markdown("<div class='button-container'>", unsafe_allow_html=True)
-if st.button("🔎 Detect Spam"):
-    if user_input.strip() == "":
-        st.warning("⚠️ Please enter a message before detecting spam.")
+if st.button("🔎 Predict"):
+    if user_input.strip() == "":  # Prevent empty input
+        st.warning("⚠️ Please enter a message before predicting.")
     else:
-        probability = model.predict_proba([user_input])[0][1]  
-        spam_percentage = round(probability * 100, 2) 
+        probability = model.predict_proba([user_input])[0][1]  # Get spam probability
+        spam_percentage = round(probability * 100, 2)  # Convert to percentage
         
         if probability > 0.5:
-            st.markdown(f"<p class='spam-message'>🚨 <b>Spam Detected! ({spam_percentage}% Spam Probability)</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p class='spam-message'>🚨 <b>Spam Message Detected! ({spam_percentage}% Spam Probability)</b></p>", unsafe_allow_html=True)
         else:
-            st.markdown(f"<p class='not-spam-message'>✅ <b>Not Spam! ({100 - spam_percentage}% Safe Probability)</b></p>", unsafe_allow_html=True)
+            st.markdown(f"<p class='not-spam-message'>✅ <b>This message is safe! ({100 - spam_percentage}% Not Spam Probability)</b></p>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Footer with GitHub and LinkedIn
+# Footer with GitHub First & LinkedIn Second
 st.markdown(
     """
     <hr>
@@ -73,3 +74,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+make ui according to spam
