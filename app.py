@@ -74,6 +74,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-
-make ui according to spam
